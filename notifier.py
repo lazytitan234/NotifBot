@@ -34,7 +34,7 @@ def send_telegram(msg: str):
             params={"chat_id": CHAT, "text": msg, "parse_mode": "HTML"},
         )
 
-def page_has_no_events(page) -> bool:
+def page_has_no_events(page):
     page.goto(URL, wait_until="networkidle")
     text = page.locator("body").inner_text()
     return NO_EVENTS_TEXT.lower() in text.lower()
